@@ -1,0 +1,41 @@
+{
+  "lockfile_version": "1",
+  "packages": {
+    "darwin.apple_sdk.frameworks.CoreFoundation": {
+      "resolved": "github:NixOS/nixpkgs/75a52265bda7fd25e06e3a67dee3f0354e73243c#darwin.apple_sdk.frameworks.CoreFoundation",
+      "source": "nixpkg"
+    },
+    "darwin.apple_sdk.frameworks.CoreServices": {
+      "resolved": "github:NixOS/nixpkgs/75a52265bda7fd25e06e3a67dee3f0354e73243c#darwin.apple_sdk.frameworks.CoreServices",
+      "source": "nixpkg"
+    },
+    "glibcLocales@2.38-27": {
+      "last_modified": "2024-01-27T14:55:31Z",
+      "resolved": "github:NixOS/nixpkgs/160b762eda6d139ac10ae081f8f78d640dd523eb#glibcLocales",
+      "source": "devbox-search",
+      "version": "2.38-27",
+      "systems": {
+        "aarch64-linux": {
+          "store_path": "/nix/store/r7yjws2bq7ps6bivmwrbvvyx6p1g9i68-glibc-locales-2.38-27"
+        },
+        "x86_64-linux": {
+          "store_path": "/nix/store/pvqdhg5snh86jnin6vfn5y4l7x4qs0wb-glibc-locales-2.38-27"
+        }
+      }
+    },
+    "inotify-tools@4.23.9.0": {
+      "last_modified": "2024-02-10T18:15:24Z",
+      "resolved": "github:NixOS/nixpkgs/10b813040df67c4039086db0f6eaf65c536886c6#inotify-tools",
+      "source": "devbox-search",
+      "version": "4.23.9.0",
+      "systems": {
+        "aarch64-linux": {
+          "store_path": "/nix/store/ybad9g8iccbhm39jdxw8xhblb8n35jxm-inotify-tools-4.23.9.0"
+        },
+        "x86_64-linux": {
+          "store_path": "/nix/store/9p6vhfpn99slmndb3nb24zp35c3yd5a4-inotify-tools-4.23.9.0"
+        }
+      }
+    }
+  }
+}

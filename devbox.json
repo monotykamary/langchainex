@@ -1,0 +1,23 @@
+{
+  "packages": {
+    "path:flakes/elixir#elixir":       "",
+    "path:flakes/elixir#elixir-ls":    "",
+    "glibcLocales": {
+      "version":            "2.38-27",
+      "excluded_platforms": ["aarch64-darwin"]
+    },
+    "inotify-tools": {
+      "version":            "4.23.9.0",
+      "excluded_platforms": ["aarch64-darwin"]
+    },
+    "darwin.apple_sdk.frameworks.CoreServices": {
+      "platforms": ["aarch64-darwin"]
+    },
+    "darwin.apple_sdk.frameworks.CoreFoundation": {
+      "platforms": ["aarch64-darwin"]
+    }
+  },
+  "shell": {
+    "init_hook": [],
+  }
+}
