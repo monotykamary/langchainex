@@ -85,6 +85,7 @@ defmodule LangChain.Providers.Bumblebee.LanguageModel do
           # inspect the model.spec field for an overview of the model's architecture, vocab_size,
           # max_positions, pad_token_id, etc
           {:ok, model} = Bumblebee.load_model({:hf, config.model_name})
+
           # this is where tokenizer for that model gets downloaded, tokenizers use the model's encoding scheme
           # to turn text into numbers
           # inspect your tokenizer to see stats for your tokenizer, like vocab_size, end_of_word_suffix, etc

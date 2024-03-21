@@ -121,7 +121,7 @@ defmodule LangChain.LanguageModelHuggingfaceTest do
 
             %{
               model: %{provider: model.provider, model_name: model.model_name},
-              response: response,
+              response: response
               # yellow: yellow_function(response, @expected_output),
             }
           rescue
@@ -155,13 +155,14 @@ defmodule LangChain.LanguageModelHuggingfaceTest do
         @implementations_and_models,
         fn {impl, params} ->
           try do
-            IO.puts ">>>>>>>>>>>>>>>>>>"
+            IO.puts(">>>>>>>>>>>>>>>>>>")
             model = Map.merge(impl, params)
             response = LanguageModelProtocol.ask(model, @input_for_chat)
             IO.inspect(response)
+
             %{
               model: %{provider: model.provider, model_name: model.model_name},
-              response: response,
+              response: response
               # yellow: yellow_function(response, @expected_output),
               # green: green_function(response, @expected_output)
             }
@@ -205,7 +206,7 @@ defmodule LangChain.AudioModelHuggingfaceTest do
   @audio_models [
     {%LangChain.Providers.Huggingface.AudioModel{}, %{}},
     {%LangChain.Providers.Huggingface.AudioModel{
-        model_name: "marinone94/whisper-medium-swedish"
+       model_name: "marinone94/whisper-medium-swedish"
      }, %{}}
   ]
 

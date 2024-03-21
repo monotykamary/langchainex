@@ -120,42 +120,32 @@ defmodule LangChain.Providers.Huggingface do
   finds the right input format for this model/input
   and returns it as a http request body in string form
   """
+  def prepare_input(model, input)
+      when is_binary(input) and model.language_action == :generation do
+    %{inputs: input}
+    |> Jason.encode!()
+  end
+
+  def prepare_input(model, input) when model.language_action == :generation do
+    %{inputs: input |> Enum.join(" ")}
+    |> Jason.encode()
+  end
+
+  def prepare_input(model, input) when model.language_action == :table_question_answering do
+    prepare_template_input(model, input)
+  end
+
   def prepare_input(model, input) do
-    cond do
-      model.language_action == :generation and is_binary(input) ->
-        %{
-          inputs: input
-        }
-        |> Jason.encode!()
+    prepare_template_input(model, input)
+  end
 
-      model.language_action == :generation ->
-        %{
-          inputs: input |> Enum.join(" ")
-        }
-        |> Jason.encode()
+  defp prepare_template_input(model, input) do
+    template = get_template_body_for_action(model)
 
-      model.language_action == :table_question_answering ->
-        template = get_template_body_for_action(model)
-
-        try do
-          atom_input = %{
-            :query => input["query"] || input[:query],
-            :table => input["table"] || input[:table]
-          }
-
-          EEx.eval_string(template, input: atom_input)
-        rescue
-          error -> error
-        end
-
-      true ->
-        template = get_template_body_for_action(model)
-
-        try do
-          EEx.eval_string(template, input: input)
-        rescue
-          error -> error
-        end
+    try do
+      EEx.eval_string(template, input: input)
+    rescue
+      error -> error
     end
   end
 

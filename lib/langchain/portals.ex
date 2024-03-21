@@ -26,8 +26,8 @@ defmodule LangChain.Portals do
     :max_attempts - the maximum number of attempts to make before giving up
   """
 
-  alias LangChain.PromptTemplate
   alias LangChain.LanguageModelProtocol
+  alias LangChain.PromptTemplate
 
   def whirlpool_portal(model, elixir_code, options \\ []) do
     max_attempts = Keyword.get(options, :max_attempts, 10)
