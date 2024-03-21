@@ -4,8 +4,8 @@ defmodule LangchainEx.MixProject do
   def project do
     [
       app: :langchainex,
-      version: "0.2.2",
-      elixir: "~> 1.14",
+      version: "0.2.3",
+      elixir: "~> 1.16",
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
       deps: deps(),
@@ -31,14 +31,14 @@ defmodule LangchainEx.MixProject do
       # {:exla, "~> 0.5.1"},
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
       {:elixir_uuid, "~> 1.2"},
-      {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
+      {:ex_doc, "~> 0.31", only: :dev, runtime: false},
       # kino is optional, use if you want to use ui with models
       # {:kino, "~> 0.8.0", optional: true}
-      {:ex_openai, "~> 1.1.0"},
-      {:jason, ">= 1.0.0"},
+      {:ex_openai, "~> 1.5"},
+      {:jason, "~> 1.4"},
       # telemetry is optional, use if you want to run models locally with bumblebee
-      {:telemetry, ">= 0.4.0", optional: true},
-      {:ssl_verify_fun, "~> 1.1.7", manager: :rebar3, override: true}
+      {:telemetry, "~> 1.2", optional: true},
+      {:ssl_verify_fun, "~> 1.1", manager: :rebar3, override: true}
     ]
   end
 
